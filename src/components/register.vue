@@ -233,6 +233,7 @@
         font-family: Avenir-Book;
         font-size: 14px;
         color: #666666;
+        border-radius: 0px;
     }
     p.tip{
         font-family: Avenir-Book;

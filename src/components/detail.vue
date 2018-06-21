@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="detail-main">
         <div v-show="list.length > 0">
             <mt-loadmore :auto-fill="false" :bottom-distance="40" ref="loadmore" @bottom-status-change="handleBottomChange"
                          :bottom-method="loadList" :bottom-all-loaded="allLoaded">
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-    import {Loadmore, Toast} from 'mint-ui';
+    import {Loadmore, Toast, Indicator} from 'mint-ui';
     import {DY} from '../lib/lib';
 
     const globalQuery = DY.getUrlQueryObj();
@@ -54,6 +54,8 @@
         },
         methods: {
             loadList() {
+
+                Indicator.open();
                 let vm = this,
                     params = {
                         sid: globalQuery.sid,
@@ -65,6 +67,7 @@
                     };
 
                 vm.$http.$get('invitefriends/records', params).then(res => {
+                    Indicator.close();
                     if(res.data.error_code == 0){
                         vm.list = vm.list.concat(res.data.result);
                         if (res.data.result.length < 20) {

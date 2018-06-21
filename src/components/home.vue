@@ -252,9 +252,7 @@
         color: #999999;
     }
 
-    .user-area::-webkit-scrollbar {
-        display: none
-    }
+
 
     .user-area {
         width: fit-content;
@@ -263,6 +261,10 @@
         box-sizing: border-box;
         overflow-x: scroll;
         text-align: center;
+    }
+
+    .user-area::-webkit-scrollbar {
+        background-color:transparent;
     }
 
     div.go-pro-area {
