@@ -83,6 +83,7 @@
                         key: GLOBAL_QUERY.key,
                         h2oH5: 'dailyyoga'
                     };
+
                 vm.$http.$post('user/register', params).then(res => {
                     if(res.data.error_code == 0){
                         vm.registerSuccess = true;
@@ -103,7 +104,7 @@
 
             Indicator.open();
 
-            vm.$http.$get('invitefriends/inviteIndex', params).then(res => {
+            vm.$http.$get('Invitefriends/inviteIndex', params).then(res => {
                 Indicator.close();
                 if(res.data.error_code == 0){
                     vm.pageInfo = res.data.result;

@@ -2,14 +2,13 @@
     <div class="main">
         <h2 class="center">{{pageInfo.solgan}}</h2>
         <div class="icon-area" :class="{'free': !pageInfo.is_vip}"></div>
-        <p v-if="!pageInfo.is_vip" class="center reward">+ {{pageInfo.giftDesc}}</p>
-        <p v-if="pageInfo.is_vip" class="center reward">{{pageInfo.giftDesc}}</p>
+        <!--<p v-if="!pageInfo.is_vip" class="center reward">+ {{pageInfo.giftDesc}}</p>-->
+        <p class="center reward">{{pageInfo.giftDesc}}</p>
         <article class="center" v-html="pageInfo.ruleDesc"></article>
-        <p v-if="!pageInfo.is_vip" class="coin-info center">{{pageInfo.lastGiftDesc}}</p>
-        <p v-if="pageInfo.is_vip" class="coin-info center">{{pageInfo.lastGiftDesc}}</p>
+        <!--<p v-if="!pageInfo.is_vip" class="coin-info center">{{pageInfo.lastGiftDesc}}</p>-->
+        <p class="coin-info center">{{pageInfo.lastGiftDesc}}</p>
         <button class="blue-btn invite" :class="{'android': !isIos}" @click="inviteUser">Invite</button>
         <ul class="desc">
-            <li>{{pageInfo.inviteDesc}}</li>
             <li>{{pageInfo.inviteDesc}}</li>
         </ul>
         <div class="line"></div>
@@ -98,11 +97,11 @@
                     platform: globalQuery.platform,
                     lang: globalQuery.lang,
                     version: globalQuery.version,
-
                 };
             vm.$http.$get('invitefriends/index', params).then(res => {
                 if (res.data.error_code == 0) {
                     vm.pageInfo = res.data.result;
+                    DY.setTitle(vm.pageInfo.title);
                 } else {
                     Toast(res.data.error_desc);
                 }

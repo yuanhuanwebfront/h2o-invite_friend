@@ -1,24 +1,38 @@
 <template>
-    <mt-loadmore :auto-fill="false" :bottom-distance="40" ref="loadmore" @bottom-status-change="handleBottomChange"
-                 :bottom-method="loadList" :bottom-all-loaded="allLoaded">
-        <div v-for="item in list" class="detail-info flex">
-            <div class="detail-left flex">
-                <img class="img" :src="item.user_img">
-                <div class="user-item ">
-                    <h5>{{item.user_name}}</h5>
-                    <p>
-                        <span>{{item.detail_status == 1 ? 'Experience success' : 'Experience fail'}}</span>
-                        <b>{{item.detail_reward ? 'Got ' + item.detail_reward : ''}}</b>
-                    </p>
+    <div>
+        <div v-show="list.length > 0">
+            <mt-loadmore :auto-fill="false" :bottom-distance="40" ref="loadmore" @bottom-status-change="handleBottomChange"
+                         :bottom-method="loadList" :bottom-all-loaded="allLoaded">
+                <div v-for="item in list" class="detail-info flex">
+                    <div class="detail-left flex">
+                        <img class="img" :src="item.user_img">
+                        <div class="user-item ">
+                            <h5>{{item.user_name}}</h5>
+                            <p>
+                                <span>{{item.detail_status == 1 ? 'Experience success' : 'Experience fail'}}</span>
+                                <b>{{item.detail_reward ? 'Got ' + item.detail_reward : ''}}</b>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="detail-right">{{item.time}}</div>
                 </div>
+                <div slot="top" class="mint-loadmore-top">
+                    <span v-show="bottomStatus !== 'loading'"></span>
+                    <span v-show="bottomStatus === 'loading'">Loading...</span>
+                </div>
+            </mt-loadmore>
+        </div>
+
+        <div v-show="list.length == 0 || !list" class="no-result">
+            <div class="flex" style="justify-content: center;">
+                <img src="../assets/img/Group@3x.png">
             </div>
-            <div class="detail-right">{{item.time}}</div>
+            <h4>No results found</h4>
         </div>
-        <div slot="top" class="mint-loadmore-top">
-            <span v-show="bottomStatus !== 'loading'"></span>
-            <span v-show="bottomStatus === 'loading'">Loading...</span>
-        </div>
-    </mt-loadmore>
+
+    </div>
+
+
 
 </template>
 
@@ -109,5 +123,20 @@
         font-size: 12px;
         color: #999999;
         padding-left: 6px;
+    }
+
+    div.no-result{
+        padding-top: 44px;
+    }
+    div.no-result img{
+        width: 150px;
+        height: 150px;
+        margin-bottom: 8px;
+    }
+    div.no-result h4{
+        font-family: Avenir-Book;
+        font-size: 16px;
+        color: #999999;
+        text-align: center;
     }
 </style>

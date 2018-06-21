@@ -452,6 +452,7 @@
   };
 
   DY.setTitle = function(title){
+      document.title = title;
       try{
           native.jsSetTitle(title);
       }catch(e){
