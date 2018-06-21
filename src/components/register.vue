@@ -41,7 +41,7 @@
                 <img src="../assets/img/stars@2x.png">
                 <p>Promotional Advertising Specialty You Ve Waited Long Enough</p>
             </div>
-            <button>{{pageInfo.appInfo.installButton}}</button>
+            <button @click="goToInstall">{{pageInfo.appInfo.installButton}}</button>
         </div>
 
     </div>
@@ -76,10 +76,10 @@
                     params = {
                         email: vm.registerCount,
                         password: vm.registerPassword,
-                        lang: GLOBAL_QUERY.lang,
-                        platform: GLOBAL_QUERY.platform,
-                        type: GLOBAL_QUERY.type,
-                        version: GLOBAL_QUERY.version,
+                        lang: GLOBAL_QUERY.lang || 2,
+                        platform: DY.isAndroid ? 1 : 2,
+                        type: DY.isAndroid ? 1 : 2,
+                        version: GLOBAL_QUERY.version || "6.2.70",
                         key: GLOBAL_QUERY.key,
                         h2oH5: 'dailyyoga'
                     };
@@ -91,15 +91,19 @@
                         Toast(res.data.error_desc);
                     }
                 })
+            },
+
+            goToInstall(){
+                window.location.href = this.pageInfo.appInfo[DY.isAndroid ? 'androidDownloadLink' : 'iosDownloadLink'];
             }
         },
         created (){
             let vm = this,
                 params = {
                     key: GLOBAL_QUERY.key,
-                    platform: GLOBAL_QUERY.platform,
-                    lang: GLOBAL_QUERY.lang,
-                    version: GLOBAL_QUERY.version
+                    platform: DY.isAndroid ? 1 : 2,
+                    lang: GLOBAL_QUERY.lang || 2,
+                    version: GLOBAL_QUERY.version || "6.2.70"
                 };
 
             Indicator.open();

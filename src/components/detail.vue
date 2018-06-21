@@ -1,7 +1,7 @@
 <template>
-    <div class="detail-main">
+    <div class="detail-main" v-cloak>
         <div v-show="list.length > 0">
-            <mt-loadmore :auto-fill="false" :bottom-distance="40" ref="loadmore" @bottom-status-change="handleBottomChange"
+            <mt-loadmore :auto-fill="false" :bottom-distance="30" ref="loadmore" @bottom-status-change="handleBottomChange"
                          :bottom-method="loadList" :bottom-all-loaded="allLoaded">
                 <div v-for="item in list" class="detail-info flex">
                     <div class="detail-left flex">
