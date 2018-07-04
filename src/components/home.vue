@@ -62,7 +62,10 @@
             inviteUser() {
                 let vm = this;
                 sa.track('click_general_h2o', {
-                    click_id: 63
+                    page_name: "41",
+                    click_id: 63,
+                    click_source_id_h2o: "",
+                    click_source_url: ""
                 });
                 DY.sendNative(vm.pageInfo.shareJson);
             },
@@ -85,7 +88,10 @@
                     if (res.data.error_code == 0) {
                         user.show_remind = 0;
                         sa.track('click_general_h2o', {
-                            click_id: 64
+                            page_name: "41",
+                            click_id: 64,
+                            click_source_id_h2o: "",
+                            click_source_url: ""
                         });
                     } else {
                         Toast(res.data.error_desc);
@@ -112,7 +118,8 @@
         },
         mounted(){
             sa.track('pageview_general_h2o', {
-                page_id: 41
+                page_id: 41,
+                pageinfo: ""
             })
         }
     }

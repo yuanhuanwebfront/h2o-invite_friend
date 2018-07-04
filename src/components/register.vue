@@ -87,7 +87,10 @@
                     if(res.data.error_code == 0){
                         vm.registerSuccess = true;
                         sa.track('click_general_h2o', {
-                            click_id: 65
+                            page_name: "43",
+                            click_id: 65,
+                            click_source_id_h2o: "",
+                            click_source_url: ""
                         });
                     }else{
                         Toast(res.data.error_desc);
