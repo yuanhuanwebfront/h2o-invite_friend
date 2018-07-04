@@ -47,6 +47,7 @@
 <script>
 
     import { DY } from '../lib/lib';
+    import sa from 'sa-sdk-javascript';
     import { Toast, Indicator } from 'mint-ui';
 
     const GLOBAL_QUERY = DY.getUrlQueryObj();
@@ -131,7 +132,8 @@
 			  }
 			}, false);
             sa.track('pageview_general_h2o', {
-                page_id: 43
+                page_id: 43,
+                pageinfo: ""
             })
         }
     }
