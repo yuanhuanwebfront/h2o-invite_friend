@@ -2,18 +2,16 @@
     <div class="main">
         <h2 class="center">{{pageInfo.solgan}}</h2>
         <div class="icon-area" :class="{'free': !pageInfo.is_vip}"></div>
-        <!--<p v-if="!pageInfo.is_vip" class="center reward">+ {{pageInfo.giftDesc}}</p>-->
         <p class="center reward">{{pageInfo.giftDesc}}</p>
         <article class="center" v-html="pageInfo.ruleDesc"></article>
-        <!--<p v-if="!pageInfo.is_vip" class="coin-info center">{{pageInfo.lastGiftDesc}}</p>-->
         <p class="coin-info center">{{pageInfo.lastGiftDesc}}</p>
-        <button class="blue-btn invite" :class="{'android': !isIos}" @click="inviteUser">Invite</button>
+        <button class="blue-btn invite" :class="{'android': !isIos}" @click="inviteUser">{{"common_invite" | translate}}</button>
         <ul class="desc">
             <li>{{pageInfo.inviteDesc}}</li>
         </ul>
         <div class="line"></div>
         <footer>
-            <h2 class="center">A friend who has joined this month</h2>
+            <h2 class="center">{{"common_friend_invite" | translate}}</h2>
             <div class="flex user-area" style="-webkit-overflow-scrolling: touch;">
                 <div class="friend" v-for="item in pageInfo.invite_list">
                     <img class="img" :src="item.user_img" @click="jumpUserArea(item)">
@@ -29,14 +27,14 @@
         </div>
 
         <section class="last">
-            <p class="center">Your reward will be issued after the friend</p>
-            <p class="center">completes the practice</p>
+            <p class="center" style="box-sizing: border-box;padding: 0 30px;">{{"common_complete_desc" | translate}}</p>
         </section>
     </div>
 </template>
 
 <script>
     import {DY} from '../lib/lib.js';
+    import sa from 'sa-sdk-javascript';
     import {Toast, Indicator} from 'mint-ui';
 
     const globalQuery = DY.getUrlQueryObj();
@@ -57,12 +55,15 @@
 
             //  goPro 按钮点击
             goProToast() {
-                Toast('PRO用户邀请成功后将获得1天会员体验券');
+                Toast(this.$options.filters.translate("common_Pro_member"));
             },
 
             //  邀请按钮
             inviteUser() {
                 let vm = this;
+                sa.track('click_general_h2o', {
+                    click_id: 63
+                });
                 DY.sendNative(vm.pageInfo.shareJson);
             },
 
@@ -83,7 +84,9 @@
                     Indicator.close();
                     if (res.data.error_code == 0) {
                         user.show_remind = 0;
-                        Toast('提醒成功');
+                        sa.track('click_general_h2o', {
+                            click_id: 64
+                        });
                     } else {
                         Toast(res.data.error_desc);
                     }
@@ -105,6 +108,11 @@
                 } else {
                     Toast(res.data.error_desc);
                 }
+            })
+        },
+        mounted(){
+            sa.track('pageview_general_h2o', {
+                page_id: 41
             })
         }
     }
@@ -261,10 +269,13 @@
         box-sizing: border-box;
         overflow-x: scroll;
         text-align: center;
+        padding-bottom: 20px;
+        overflow-y: hidden;
     }
 
     .user-area::-webkit-scrollbar {
         background-color:transparent;
+        display: none;
     }
 
     div.go-pro-area {

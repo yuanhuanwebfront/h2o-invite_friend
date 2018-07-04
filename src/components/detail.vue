@@ -27,7 +27,7 @@
             <div class="flex" style="justify-content: center;">
                 <img src="../assets/img/Group@3x.png">
             </div>
-            <h4>No results found</h4>
+            <h4>{{"common_noData" | translate}}</h4>
         </div>
 
     </div>

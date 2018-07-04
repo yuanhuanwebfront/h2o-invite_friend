@@ -16,22 +16,19 @@
         </div>
 
         <div class="account-area" :class="{android: isAndroid}">
-            <h4 class="center">Sign up</h4>
+            <h4 class="center">{{"common_register" | translate}}</h4>
             <div class="form">
                 <div class="form-label" v-show="!registerSuccess">
-                    <input type="text" v-model="registerCount">
+                    <input type="text" v-model="registerCount" :placeholder="accountPlaword">
                 </div>
                 <div class="form-label" v-show="!registerSuccess">
-                    <input type="password" v-model="registerPassword">
+                    <input type="password" v-model="registerPassword" :placeholder="passwordPlaword">
                 </div>
                 <p class="login-account center" v-show="registerSuccess">{{registerCount}}</p>
             </div>
             <div v-show="!registerSuccess">
                 <p class="tip"></p>
-                <button class="blue-btn" :disabled="!registerCount || !registerPassword" @click="createUser">Create New Account</button>
-                <!--<p class="center or">{{ "common_or" | translate}}</p>-->
-                <!--<button class="facebook-btn">Sign up with Facebook</button>-->
-                <!--<button class="facebook-btn google" v-show="isAndroid">Sign up with Google</button>-->
+                <button class="blue-btn" :disabled="!registerCount || !registerPassword" @click="createUser">{{"common_register" | translate}}</button>
             </div>
         </div>
 
@@ -63,6 +60,8 @@
                 registerCount: '',
                 registerPassword: '',
                 registerSuccess: false,
+                accountPlaword: '',
+                passwordPlaword: '',
                 pageInfo: {
                     inviteInfo: {},
                     appInfo: {},
@@ -87,6 +86,9 @@
                 vm.$http.$post('user/register', params).then(res => {
                     if(res.data.error_code == 0){
                         vm.registerSuccess = true;
+                        sa.track('click_general_h2o', {
+                            click_id: 65
+                        });
                     }else{
                         Toast(res.data.error_desc);
                     }
@@ -115,6 +117,18 @@
                 }else{
                     Toast(res.data.error_desc);
                 }
+            })
+        },
+        mounted (){
+            this.accountPlaword = this.$options.filters.translate('common_email');
+            this.passwordPlaword = this.$options.filters.translate('common_password');
+        	document.documentElement.addEventListener('touchstart', function (event) {
+			  if (event.touches.length > 1) {
+			    event.preventDefault();
+			  }
+			}, false);
+            sa.track('pageview_general_h2o', {
+                page_id: 43
             })
         }
     }
@@ -181,6 +195,8 @@
         margin: 17px 0 22px 0;
     }
     p.desc-item{
+        width: 100%;
+        box-sizing: border-box;
         font-family: Avenir-Book;
         font-size: 12px;
         color: #999999;
@@ -189,6 +205,9 @@
         padding-left: 30px;
         background: url("../assets/img/point@3x.png") no-repeat 3px center;
         background-size: 12px 12px;
+        word-break: break-word;
+        word-wrap: break-word;
+        overflow: hidden;
     }
     div.intro.android h3{
         font-family: Roboto-Bold;
