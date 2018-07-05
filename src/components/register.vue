@@ -34,9 +34,9 @@
 
         <div class="install-area" v-show="registerSuccess">
             <div class="app">
-                <h2>To Keep Makeup Looking Fresh Take A Powder</h2>
+                <h2>{{"common_install_desc1" | translate}}</h2>
                 <img src="../assets/img/stars@2x.png">
-                <p>Promotional Advertising Specialty You Ve Waited Long Enough</p>
+                <p>{{"common_install_desc2" | translate}}</p>
             </div>
             <button @click="goToInstall">{{pageInfo.appInfo.installButton}}</button>
         </div>
@@ -72,6 +72,7 @@
         },
         methods: {
             createUser (){
+                Indicator.open();
                 let vm = this,
                     params = {
                         email: vm.registerCount,
@@ -85,6 +86,7 @@
                     };
 
                 vm.$http.$post('user/register', params).then(res => {
+                    Indicator.close();
                     if(res.data.error_code == 0){
                         vm.registerSuccess = true;
                         sa.track('click_general_h2o', {
@@ -320,6 +322,7 @@
     div.install-area .app img{
         width: 60px;
         height: 8px;
+        margin-top: 6px;
     }
     div.install-area .app p{
         margin-top: 5px;

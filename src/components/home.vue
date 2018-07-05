@@ -22,7 +22,7 @@
             </div>
         </footer>
         <div class="flex go-pro-area" v-if="!pageInfo.is_vip">
-            <a class="go-pro center" @click="goToProUrl">GoPro earn more awards</a>
+            <a class="go-pro center" @click="goToProUrl">{{"common_GoPro" | translate}}</a>
             <i class="go-pro" @click="goProToast"></i>
         </div>
 
@@ -287,6 +287,7 @@
 
     div.go-pro-area {
         justify-content: center;
+        align-items: center;
         margin-top: 40px;
     }
 
@@ -294,8 +295,9 @@
         display: block;
         font-family: AvenirNext-Regular;
         font-size: 18px;
+        padding: 0 15px;
+        box-sizing: border-box;
         color: #8599F3;
-        height: 25px;
         line-height: 25px;
     }
 
