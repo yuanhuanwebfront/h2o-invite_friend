@@ -16,3 +16,9 @@ button.blue-btn{
     align-items: center;
     justify-content: flex-start;
 }
+b.awards-item{
+    color: #8599F3;
+}
+span.mint-toast-text{
+    font-family: Avenir-Book;
+}

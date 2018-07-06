@@ -4,20 +4,22 @@
         <div class="icon-area" :class="{'free': !pageInfo.is_vip}"></div>
         <p class="center reward">{{pageInfo.giftDesc}}</p>
         <article class="center" v-html="pageInfo.ruleDesc"></article>
-        <p class="coin-info center">{{pageInfo.lastGiftDesc}}</p>
+        <p class="coin-info center" v-html="pageInfo.lastGiftDesc"></p>
         <button class="blue-btn invite" :class="{'android': !isIos}" @click="inviteUser">{{"common_invite" | translate}}</button>
         <ul class="desc">
             <li>{{pageInfo.inviteDesc}}</li>
         </ul>
         <div class="line"></div>
         <footer>
-            <h2 class="center">{{"common_friend_invite" | translate}}</h2>
             <div class="flex user-area" style="-webkit-overflow-scrolling: touch;">
-                <div class="friend" v-for="item in pageInfo.invite_list">
+                <div class="friend" v-for="item in pageInfo.invite_list" ng-show="pageInfo.invite_list.length != 0">
                     <img class="img" :src="item.user_img" @click="jumpUserArea(item)">
                     <button class="center" @click="noticeUser(item)" :class="{'android': !isIos}"
                             :disabled="item.show_remind == 0">{{item.remind_button}}
                     </button>
+                </div>
+                <div class="friend-empty" style="color: #999;line-height: 16px;">
+                    {{'common_friend_list_empty' | translate}}
                 </div>
             </div>
         </footer>
@@ -55,7 +57,7 @@
 
             //  goPro 按钮点击
             goProToast() {
-                Toast(this.$options.filters.translate("common_Pro_member"));
+                Toast(this.$options.filters.translate("common_Pro_member"), 50000);
             },
 
             //  邀请按钮
@@ -227,6 +229,7 @@
     footer h2 {
         font-size: 14px;
         margin-bottom: 25px;
+        color: #666;
     }
 
     div.friend {
@@ -311,6 +314,8 @@
         background: url("../assets/img/gifticon.png") no-repeat center center;
         background-size: cover;
     }
+
+
 
     @media screen and (min-width: 750px) {
         a.go-pro {

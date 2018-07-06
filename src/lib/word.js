@@ -1,4 +1,4 @@
-  let word = {
+let word = {
 
     //  en
     "2": {
@@ -15,7 +15,8 @@
         "common_email": "Email",
         "common_password": "Password",
         "common_experience_success": "Experience success",
-        "common_experience_fail": "Experience fail"
+        "common_experience_fail": "Experience fail",
+        "common_friend_list_empty": "Your Rewards will be sent to you after your friends have finished experiencing a yoga session."
     },
 
     //  繁中
@@ -33,7 +34,8 @@
         "common_email": "郵箱地址",
         "common_password": "密碼",
         "common_experience_success": "體驗成功",
-        "common_experience_fail": "還未體驗"
+        "common_experience_fail": "還未體驗",
+        "common_friend_list_empty": "您的邀請獎勵將在您的朋友完成課程體驗後發放。"
     },
 
     //  日语
@@ -51,7 +53,8 @@
         "common_email": "Eメール",
         "common_password": "パスワード",
         "common_experience_success": "体験を終了した",
-        "common_experience_fail": "体験をまだ終了していない"
+        "common_experience_fail": "体験をまだ終了していない",
+        "common_friend_list_empty": "友達がヨガセッションを終了した後、クーポンが送られます。"
     },
 
     //  韩语
@@ -69,7 +72,8 @@
         "common_email": "이메일",
         "common_password": "비밀번호",
         "common_experience_success": "체험완료",
-        "common_experience_fail": "체험 미완료"
+        "common_experience_fail": "체험 미완료",
+        "common_friend_list_empty": "당신의 친구가 요가체험을 마무리한 후에 당신에게 선물이 보내어집니다. "
     },
 
     //  西语
@@ -87,7 +91,8 @@
         "common_email": "Email",
         "common_password": "Contraseña",
         "common_experience_success": "Prueba concluida",
-        "common_experience_fail": "Prueba no concluida"
+        "common_experience_fail": "Prueba no concluida",
+        "common_friend_list_empty": "Una vez que tus amigos hayan terminado una sesión de yoga, recibirás tus regalos."
     },
 
     //  简中
@@ -105,7 +110,8 @@
         "common_email": "邮箱地址",
         "common_password": "密码",
         "common_experience_success": "体验成功",
-        "common_experience_fail": "还未体验"
+        "common_experience_fail": "还未体验",
+        "common_friend_list_empty": "您的邀请奖励将在您的朋友完成课程体验后发放。"
     },
 
     //  德语
@@ -123,7 +129,8 @@
         "common_email": "Email",
         "common_password": "Passwort",
         "common_experience_success": "Erfahrung beendet",
-        "common_experience_fail": "Erfahrung nicht beendet"
+        "common_experience_fail": "Erfahrung nicht beendet",
+        "common_friend_list_empty": "Du erhältst deine Belohnungen, sobald deine Freunde eine Yoga-Sitzung abgeschlossen haben."
     },
 
     //  法语
@@ -141,7 +148,8 @@
         "common_email": "Email",
         "common_password": "Mot de passe",
         "common_experience_success": "Expérience terminée",
-        "common_experience_fail": "Expérimence inachevée"
+        "common_experience_fail": "Expérimence inachevée",
+        "common_friend_list_empty": "Vos récompenses vous seront envoyées une fois que vos amis auront terminé une séance de yoga."
     }
 };
 
