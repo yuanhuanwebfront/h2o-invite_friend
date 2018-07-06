@@ -1,5 +1,5 @@
 <template>
-    <div class="detail-main" v-cloak>
+    <div class="detail-main" v-cloak style="margin-top: 8px;">
         <div v-show="list.length > 0">
             <mt-loadmore :auto-fill="false" :bottom-distance="30" ref="loadmore" @bottom-status-change="handleBottomChange"
                          :bottom-method="loadList" :bottom-all-loaded="allLoaded">
@@ -14,7 +14,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="detail-right" style="font-size: 14px;min-width: 80px;">{{item.time}}</div>
+                    <div class="detail-right" style="font-size: 14px;min-width: 80px;font-family: Avenir-Light;">{{item.time}}</div>
                 </div>
                 <div slot="top" class="mint-loadmore-top">
                     <span v-show="bottomStatus !== 'loading'"></span>
@@ -93,6 +93,8 @@
 <style scoped>
 
     div.detail-info {
+        background: #fff;
+        border-bottom: 1px solid #f1f1f1;
         height: 66px;
         padding: 0 16px;
         box-sizing: border-box;

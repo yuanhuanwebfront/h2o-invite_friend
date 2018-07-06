@@ -307,10 +307,10 @@
         z-index: 10;
     }
     div.install-area .app{
-        height: 104px;
         padding-left: 78px;
         background: url("../assets/img/logo@2x.png") no-repeat 16px 16px;
         background-size: 48px 48px;
+        padding-bottom: 8px;
     }
     div.install-area .app h2{
         padding: 16px 16px 0 0;
@@ -331,6 +331,11 @@
         color: #999999;
         line-height: 14px;
         padding-right: 16px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        display:-webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
     }
     div.install-area button{
         width: 100%;

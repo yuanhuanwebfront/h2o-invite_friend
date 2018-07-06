@@ -11,16 +11,16 @@
         </ul>
         <div class="line"></div>
         <footer>
-            <div class="flex user-area" style="-webkit-overflow-scrolling: touch;">
-                <div class="friend" v-for="item in pageInfo.invite_list" ng-show="pageInfo.invite_list.length != 0">
+            <div class="flex user-area" style="-webkit-overflow-scrolling: touch;" ng-show="pageInfo.invite_list.length != 0">
+                <div class="friend" v-for="item in pageInfo.invite_list" >
                     <img class="img" :src="item.user_img" @click="jumpUserArea(item)">
                     <button class="center" @click="noticeUser(item)" :class="{'android': !isIos}"
                             :disabled="item.show_remind == 0">{{item.remind_button}}
                     </button>
                 </div>
-                <div class="friend-empty" style="color: #999;line-height: 16px;">
-                    {{'common_friend_list_empty' | translate}}
-                </div>
+            </div>
+            <div class="flex empty-list" ng-show="pageInfo.invite_list.length == 0">
+                {{'common_friend_list_empty' | translate}}
             </div>
         </footer>
         <div class="flex go-pro-area" v-if="!pageInfo.is_vip">
@@ -143,6 +143,14 @@
         color: #333333;
         line-height: 33px;
         margin-top: 1rem;
+    }
+
+    div.empty-list{
+        text-align: center;
+        font-family: Avenir-Book;
+        font-size: 12px;
+        color: #999999;
+        line-height: 16px;
     }
 
     .icon-area {
