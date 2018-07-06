@@ -2,6 +2,7 @@
 
     //  en
     "2": {
+        "common_title_invite": "Friends Invitation",
         "common_invite": "Invite",
         "common_friend_invite": "Friends joined this month",
         "common_GoPro": "Go Pro to earn more rewards",
@@ -19,6 +20,7 @@
 
     //  繁中
     "3": {
+        "common_title_invite": "邀請好友",
         "common_invite": "邀請",
         "common_friend_invite": "本月已加入的好友",
         "common_GoPro": "Go Pro 獲得更多獎勵",
@@ -36,6 +38,7 @@
 
     //  日语
     "4": {
+        "common_title_invite": "邀請好友",
         "common_invite": "招待する",
         "common_friend_invite": "今月参加した友達",
         "common_GoPro": "プロコースへ行ってさらに賞与を受け取りましょう。",
@@ -53,6 +56,7 @@
 
     //  韩语
     "5": {
+        "common_title_invite": "친구초청",
         "common_invite": "초청하다. ",
         "common_friend_invite": "이달에 가입한 친구들",
         "common_GoPro": "더 많은 상품 받으로 가기",
@@ -70,6 +74,7 @@
 
     //  西语
     "6": {
+        "common_title_invite": "Invitación para amigos",
         "common_invite": "Invitar",
         "common_friend_invite": "Amigos que se han unido este mes",
         "common_GoPro": "Hazte Pro para conseguir nuevos regalos",
@@ -87,6 +92,7 @@
 
     //  简中
     "7": {
+        "common_title_invite": "邀请好友",
         "common_invite": "邀请",
         "common_friend_invite": "本月已加入的好友",
         "common_GoPro": "Go Pro 获得更多奖励",
@@ -104,6 +110,7 @@
 
     //  德语
     "8": {
+        "common_title_invite": "Freunde einladen",
         "common_invite": "Einladen",
         "common_friend_invite": "Freunde, die diesen Monat teilgenommen haben",
         "common_GoPro": "Werde Pro-Mitglied, um mehr Prämien zu bekommen",
@@ -121,6 +128,7 @@
 
     //  法语
     "9": {
+        "common_title_invite": "Invitation d'amis",
         "common_invite": "Inviter",
         "common_friend_invite": "Les amis qui ont rejoint ce mois",
         "common_GoPro": "Adhérez  à la souscription Pro pour gagner plus de récompenses",

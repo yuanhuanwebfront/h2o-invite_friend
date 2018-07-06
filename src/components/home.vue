@@ -121,6 +121,9 @@
                 page_id: 41,
                 pageinfo: ""
             })
+        },
+        beforeCreate(){
+        	DY.setTitle(this.$options.filters.translate("common_title_invite"));
         }
     }
 </script>
