@@ -70,19 +70,19 @@
 
     //  西语
     "6": {
-        "common_invite": "邀请",
-        "common_friend_invite": "本月已加入的好友",
-        "common_GoPro": "Go Pro 获得更多奖励",
-        "common_Pro_member": "PRO用户邀请好友体验课程可获得1天金星会员体验券。",
-        "common_complete_desc": "您的邀请奖励将在您的朋友完成课程体验后发放。",
-        "common_noData": "你还没有成功邀请过好友",
-        "common_register": "注册",
-        "common_install_desc1": "To Keep Makeup Looking Fresh Take A Powder",
-        "common_install_desc2": "Promotional Advertising Specialty You Ve Waited Long Enough",
-        "common_email": "邮箱地址",
-        "common_password": "密码",
-        "common_experience_success": "体验成功",
-        "common_experience_fail": "还未体验"
+        "common_invite": "Invitar",
+        "common_friend_invite": "Amigos que se han unido este mes",
+        "common_GoPro": "Hazte Pro para conseguir nuevos regalos",
+        "common_Pro_member": "Los miembros Pro recibirán bonos de 1 día Gold Pro si sus amigos terminan una sesión de yoga.",
+        "common_complete_desc": "Una vez que tus amigos hayan terminado una sesión de yoga, recibirás tus regalos.",
+        "common_noData": "Aún no has invitado a ningún amigo",
+        "common_register": "Registrar",
+        "common_install_desc1": "Daily Yoga",
+        "common_install_desc2": "La app de yoga más popular del mundo",
+        "common_email": "Email",
+        "common_password": "Contraseña",
+        "common_experience_success": "Prueba concluida",
+        "common_experience_fail": "Prueba no concluida"
     },
 
     //  简中
