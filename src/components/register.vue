@@ -27,7 +27,7 @@
                 <p class="login-account center" v-show="registerSuccess">{{registerCount}}</p>
             </div>
             <div v-show="!registerSuccess">
-                <p class="tip"></p>
+                <p class="tip">{{errorDesc}}</p>
                 <button class="blue-btn" :disabled="!registerCount || !registerPassword" @click="createUser">{{"common_register" | translate}}</button>
             </div>
         </div>
@@ -61,8 +61,10 @@
                 registerCount: '',
                 registerPassword: '',
                 registerSuccess: false,
+                registerError: false,
                 accountPlaword: '',
                 passwordPlaword: '',
+                errorDesc: "",
                 pageInfo: {
                     inviteInfo: {},
                     appInfo: {},
@@ -96,6 +98,8 @@
                             click_source_url: ""
                         });
                     }else{
+                        vm.registerError = true;
+                        // vm.errorDesc = res.data.error_desc;
                         Toast(res.data.error_desc);
                     }
                 })
@@ -164,7 +168,8 @@
         width: 60px;
         height: 60px;
         border: 4px solid #fff;
-        border-radius: 30px;
+        border-radius: 40px;
+        background: #fff;
     }
     div.header p{
         font-size: 14px;
@@ -264,6 +269,7 @@
         font-size: 14px;
         color: #666666;
         border-radius: 0px;
+        background: none;
     }
     p.tip{
         font-family: Avenir-Book;
@@ -271,6 +277,7 @@
         color: #F55F51;
         height: 26px;
         line-height: 26px;
+        margin-bottom: 6px;
     }
     div.account-area button.facebook-btn{
         color: #526BC0;

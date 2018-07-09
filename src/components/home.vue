@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="main" v-cloak>
         <h2 class="center">{{pageInfo.solgan}}</h2>
         <div class="icon-area" :class="{'free': !pageInfo.is_vip}"></div>
         <p class="center reward">{{pageInfo.giftDesc}}</p>
@@ -11,16 +11,14 @@
         </ul>
         <div class="line"></div>
         <footer>
-            <div class="flex user-area" style="-webkit-overflow-scrolling: touch;" ng-show="pageInfo.invite_list.length != 0">
+            <p class="join-friend">{{"common_friend_invite" | translate }}</p>
+            <div class="flex user-area" style="-webkit-overflow-scrolling: touch;" v-if="pageInfo.invite_list.length != 0">
                 <div class="friend" v-for="item in pageInfo.invite_list" >
                     <img class="img" :src="item.user_img" @click="jumpUserArea(item)">
                     <button class="center" @click="noticeUser(item)" :class="{'android': !isIos}"
                             :disabled="item.show_remind == 0">{{item.remind_button}}
                     </button>
                 </div>
-            </div>
-            <div class="flex empty-list" ng-show="pageInfo.invite_list.length == 0">
-                {{'common_friend_list_empty' | translate}}
             </div>
         </footer>
         <div class="flex go-pro-area" v-if="!pageInfo.is_vip">
@@ -46,7 +44,9 @@
         data() {
             return {
                 isIos: DY.isiDevice,
-                pageInfo: {}
+                pageInfo: {
+                    invite_list: []
+                }
             }
         },
         methods: {
@@ -102,6 +102,7 @@
             }
         },
         created() {
+            Indicator.open();
             let vm = this,
                 params = {
                     sid: globalQuery.sid,
@@ -110,6 +111,7 @@
                     version: globalQuery.version,
                 };
             vm.$http.$get('invitefriends/index', params).then(res => {
+                Indicator.close();
                 if (res.data.error_code == 0) {
                     vm.pageInfo = res.data.result;
                     DY.setTitle(vm.pageInfo.title);
@@ -242,7 +244,7 @@
 
     div.friend {
         display: inline-block;
-        width: 65px;
+        min-width: 65px;
         margin-right: 24px;
     }
 
@@ -281,6 +283,13 @@
         color: #999999;
     }
 
+    p.join-friend{
+        font-family: AvenirNext-DemiBold;
+        font-size: 12px;
+        color: #666666;
+        text-align: center;
+        margin: 30px 0px;
+    }
 
 
     .user-area {

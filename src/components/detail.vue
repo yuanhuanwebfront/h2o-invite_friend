@@ -10,7 +10,7 @@
                             <h5>{{item.user_name}}</h5>
                             <p style="box-sizing: border-box; padding-right: 10px;height: 20px;line-height: 20px;">
                                 <span>{{(item.detail_status == 1 ? 'common_experience_success' : 'common_experience_fail') | translate }}</span>
-                                <b>{{item.detail_reward ? 'Got ' + item.detail_reward : ''}}</b>
+                                <b>{{item.detail_reward ? item.detail_reward : ''}}</b>
                             </p>
                         </div>
                     </div>
