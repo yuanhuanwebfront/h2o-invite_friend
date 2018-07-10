@@ -19,7 +19,7 @@ Vue.use(mintUi);
 Vue.use(autoTranslate, word);
 //  dev.dailyyoga.com:8106/sa?project=h2o_default
 sa.init({
-    server_url: 'http://dev.dailyyoga.com:8106/sa?project=default',
+    server_url: 'http://dev.dailyyoga.com:8106/sa?project=h2o_default',
 });
 
 new Vue({
