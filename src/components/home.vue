@@ -15,7 +15,7 @@
             <div class="flex user-area" style="-webkit-overflow-scrolling: touch;" v-if="pageInfo.invite_list.length != 0">
                 <div class="friend" v-for="item in pageInfo.invite_list" >
                     <img class="img" :src="item.user_img" @click="jumpUserArea(item)">
-                    <button class="center" @click="noticeUser(item)" :class="{'android': !isIos}"
+                    <button class="center" @click="noticeUser(item)" :class="{'android': !isIos}" style="display: block;margin: 0 auto" 
                             :disabled="item.show_remind == 0">{{item.remind_button}}
                     </button>
                 </div>
